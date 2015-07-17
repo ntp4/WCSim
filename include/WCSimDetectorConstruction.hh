@@ -125,7 +125,6 @@ public:
   // Geometry options
   void   SetIsUpright(G4bool choice) {isUpright = choice;}
 
-  G4bool UseOD;
   // *** Begin HyperK Geometry ***
 
   void   SetIsHyperK(G4bool choice) {isHyperK = choice;}
@@ -140,7 +139,6 @@ public:
   std::vector<WCSimPmtInfo*>* Get_Pmts() {return &fpmts;}
 
   G4String GetIDCollectionName(){return WCIDCollectionName;}
-  G4String GetODCollectionName(){return WCODCollectionName;}
 
  
 private:

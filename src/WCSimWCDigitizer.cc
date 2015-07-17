@@ -31,11 +31,7 @@ const double WCSimWCDigitizer::eventgateup = 950.0 ; // ns
 const double WCSimWCDigitizer::eventgatedown = -400.0 ; // ns
 const double WCSimWCDigitizer::LongTime = 100000.0 ; // ns
 // value in skdetsim
-
 const int WCSimWCDigitizer::GlobalThreshold = 25 ; // # hit PMTs
-
-
-
 //const int WCSimWCDigitizer::GlobalThreshold = 12 ; // # hit PMTs
 // try to trigger early to reduce the width.
 //const int WCSimWCDigitizer::GlobalThreshold = 10 ; // # hit PMTs
@@ -346,11 +342,9 @@ void WCSimWCDigitizer::FindNumberOfGates()
 void WCSimWCDigitizer::DigitizeGate(WCSimWCDigitsCollection* WCHCPMT,G4int G)
 {
   G4String WCIDCollectionName = myDetector->GetIDCollectionName();
-  G4String WCODCollectionName = myDetector->GetODCollectionName();
   G4float timingConstant = 0.0;
   WCSimPMTObject * PMT;
-  if(myDetector->UseOD == true)  PMT = myDetector->GetPMTPointer(WCODCollectionName);
-  else{PMT = myDetector->GetPMTPointer(WCIDCollectionName);}
+  PMT = myDetector->GetPMTPointer(WCIDCollectionName);
  
   G4double EvtG8Down = WCSimWCDigitizer::eventgatedown;
   G4double EvtG8Up = WCSimWCDigitizer::eventgateup;  // this is a negative number...
